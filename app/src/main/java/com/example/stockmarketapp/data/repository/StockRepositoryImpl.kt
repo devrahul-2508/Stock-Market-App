@@ -15,10 +15,10 @@ import javax.inject.Singleton
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
-    val api: StockApi,
-    val db: StockDatabase,
+    private val api: StockApi,
+    private val db: StockDatabase,
 
-): StockRepository{
+    ): StockRepository{
 
     private val dao = db.dao
 
@@ -42,7 +42,7 @@ class StockRepositoryImpl @Inject constructor(
             }
             val remoteListings = try{
                 val response = api.getListings()
-                
+
             }catch (e : IOException){
             e.printStackTrace()
                 emit(Resource.Error("Couldn't Load Data"))
