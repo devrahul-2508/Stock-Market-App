@@ -10,6 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -23,7 +24,7 @@ object AppModule {
             .baseUrl(StockApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
-            .create(StockApi::class.java)
+            .create()
     }
 
     @Provides
@@ -32,7 +33,7 @@ object AppModule {
         return Room.databaseBuilder(
             app,
             StockDatabase::class.java,
-            "stock_db"
+            "stockdb.db"
         ).build()
     }
 

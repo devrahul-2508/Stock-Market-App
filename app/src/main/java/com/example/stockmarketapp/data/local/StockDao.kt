@@ -8,7 +8,7 @@ interface StockDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCompanyListings(
-        companyListingEntity: List<CompanyListingEntity>
+        companyListingEntities: List<CompanyListingEntity>
     )
 
     @Query("DELETE FROM companylistingentity")

@@ -6,17 +6,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
-@Entity(tableName = "companylistingentity")
+@Entity
 data class CompanyListingEntity(
-
-    @ColumnInfo(name = "name")
-    val name : String,
-    @ColumnInfo(name = "symbol")
-    val symbol : String,
-    @ColumnInfo(name = "exchange")
-    val exchange : String,
-    @PrimaryKey(autoGenerate = true)
-    val id : Int?=null
-
-): Parcelable
+    val name: String,
+    val symbol: String,
+    val exchange: String,
+    @PrimaryKey val id: Int? = null
+)
